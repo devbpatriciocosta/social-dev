@@ -8,7 +8,7 @@ const GlobalSyle = createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
-    color: #f1f1f1;
+    color: #3a3a3a;
   }
   
   a {
