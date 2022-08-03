@@ -4,6 +4,7 @@ const theme = {
   primaryHover: '#7029A8',
   inputBackground: '#f5f5f5',
   inputBorder: '#E6E6E6',
+  background: '#ECECEC',
   black: '#3A3A3A',
   white: '#FFFFFF'
 }
