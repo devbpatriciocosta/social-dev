@@ -7,6 +7,10 @@ const StyleNavbar = styled.div`
   display: flex;
   align-items: center;
   padding: 0 100px;
+
+  @media (max-width: 500px) {
+    padding: 0 20px;
+  }
 `
 
 const StyleLogo = styled.span`
