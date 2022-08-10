@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import styled from "styled-components";
 
 import Link from 'next/link'
@@ -24,6 +26,23 @@ const Text = styled.p`
 `
 
 function SignupPage () {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [user, setUser] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleForm = (event) => {
+    event.preventDefault()
+    console.log({
+      firstName,
+      lastName, 
+      user, 
+      email, 
+      password
+    })
+  }
+  
   return (
     
       <ImageWithSpace>
@@ -33,13 +52,13 @@ function SignupPage () {
 
         <FormContainer>
           <H2> Crie sua conta! </H2>
-          <Form>
-            <Input label="Nome" />
-            <Input label="Sobrenome" />
-            <Input label="Usuário" />
-            <Input label="E-mail ou usuário" type="email"/>
-            <Input label="Senha" type="password" />
-            <Button> Entrar </Button>
+          <Form onSubmit={handleForm}>
+            <Input label="Nome" onChange={({ target }) => {setFirstName(target.value)}} />
+            <Input label="Sobrenome" onChange={({ target }) => {setLastName(target.value)}} />
+            <Input label="Usuário" onChange={({ target }) => {setUser(target.value)}} />
+            <Input label="E-mail" type="email" onChange={({ target }) => {setEmail(target.value)}} />
+            <Input label="Senha" type="password" onChange={({ target }) => {setPassword(target.value)}} />
+            <Button> Cadastrar </Button>
           </Form>
           <Text> Já possui uma conta? <Link href="/login">Faça seu login aqui!</Link> </Text>
         </FormContainer>
