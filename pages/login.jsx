@@ -1,6 +1,11 @@
 import styled from "styled-components";
-
 import Link from 'next/link'
+import { useForm } from "react-hook-form";
+import { joiResolver } from '@hookform/resolvers/joi'
+import axios from "axios";
+import { useRouter } from "next/router";
+
+import { loginSchema } from "../modules/user/user.schema";
 
 import ImageWithSpace from "../src/components/layout/ImageWithSpace"
 import H1 from "../src/components/typography/H1";
@@ -24,6 +29,31 @@ const Text = styled.p`
 `
 
 function LoginPage () {
+  const router = useRouter()
+  const { control, handleSubmit, formState: { errors }, setError } = useForm({
+    resolver:joiResolver(loginSchema)
+  })
+
+  const onSubmit = async (data) => {
+    try {
+      const { status } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/user/login`, data)
+      if (status === 200) {
+        router.push('/')
+      }
+    } catch ({ response }) {
+      if (response.data === 'password incorrect') {
+        setError('password', {
+          message: 'A senha está incorreta!'
+        })
+      }
+      else if (response.data === 'not found') {
+        setError('userOrEmail', {
+          message: 'Usuário ou e-mail não encontrado'
+        })
+      }
+    }
+  }
+
   return (
     
       <ImageWithSpace>
@@ -33,10 +63,10 @@ function LoginPage () {
 
         <FormContainer>
           <H2> Entre em sua conta! </H2>
-          <Form>
-            <Input label="E-mail ou usuário" type="email"/>
-            <Input label="Senha" type="password" />
-            <Button> Entrar </Button>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Input label="E-mail ou usuário" name="userOrEmail" control={control}/>
+            <Input label="Senha" type="password" name="password" control={control}/>
+            <Button type="submit" disabled={Object.keys(errors).length} > Entrar </Button>
           </Form>
           <Text> Não possui uma conta? <Link href="/signup">Cadastre-se aqui!</Link> </Text>
         </FormContainer>
