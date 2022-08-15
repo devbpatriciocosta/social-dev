@@ -39,12 +39,12 @@ const BottomText = styled.p`
   flex: 1;
 `
 
-function CreatePost () {
+function CreatePost ({ username }) {
   return (
 
     <PostContainer>
 
-        <H4><Title> O  que você está pensando, @Nick? </Title></H4>
+        <H4><Title> O  que você está pensando, @{username}? </Title></H4>
 
         <TextContainer>
           <TextArea placeholder="Digite aqui a sua mensagem" rows="4"/>
