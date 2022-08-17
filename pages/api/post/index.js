@@ -2,7 +2,6 @@ import { withIronSessionApiRoute } from 'iron-session/next'
 
 import createHandler from '../../../lib/middleawares/nextConnect'
 import validate from '../../../lib/middleawares/validation'
-
 import { ironConfig } from '../../../lib/middleawares/ironSession'
 
 import { createPostSchema } from '../../../modules/post/post.schema'
@@ -17,6 +16,7 @@ handler
 
       const newPost = await createPost(req.body, req.session.user)
       res.status(201).send(newPost)
+
     } catch (err) {
       return res.status(500).send(err.message)
     }
@@ -27,6 +27,7 @@ handler
 
       const posts = await getPosts()
       res.status(200).send(posts)
+      
     } catch (err) {
       return res.status(500).send(err.message)
     }
