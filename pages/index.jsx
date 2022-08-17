@@ -40,7 +40,7 @@ const PostContainer = styled.div`
 const fetcher = url => axios.get(url).then(res => res.data)
 
 function HomePage ({ user }) {
-
+  
   const { data } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, fetcher)
 
   return (
@@ -91,21 +91,19 @@ export const getServerSideProps = withIronSessionSsr (
 
     if (!user) {
       return {
-        redirect: {
-          permanent: false,
-          destination: '/login'
-        }
+          redirect: {
+            permanent: false,
+            destination: '/login'
+          }
       }
     }
-    console.log(user)
 
     return {
       props: {
-        user
+        user: user,
       }
     }
-}, 
-  ironConfig
+}, ironConfig
 )
 
 export default HomePage

@@ -44,7 +44,7 @@ function CreatePost ({ username }) {
 
     <PostContainer>
 
-        <H4><Title> O  que você está pensando, @{username}? </Title></H4>
+        <H4><Title>O  que você está pensando, @{username}?</Title></H4>
 
         <TextContainer>
           <TextArea placeholder="Digite aqui a sua mensagem" rows="4"/>
