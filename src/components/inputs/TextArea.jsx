@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TextArea = styled.textarea`
+const Textarea = styled.textarea`
   resize: none;
   width: 100%;
   padding: 15px 20px;
@@ -12,4 +12,4 @@ const TextArea = styled.textarea`
   font-family: 'Roboto', sans-serif;
 `
 
-export default TextArea
+export default Textarea

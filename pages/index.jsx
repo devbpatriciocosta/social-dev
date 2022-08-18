@@ -45,23 +45,13 @@ function HomePage ({ user }) {
 
   return (
     <>
-
       <Navbar />
-
       <Content>
-
         <Container>
-
           <CreatePost username={user.user} />
-
           <LastPostText> 
             <H3> Últimas postagens: </H3>
           </LastPostText>
-
-          <RefreshPostsContainer> 
-            <RefreshPosts> Carregar novas postagens </RefreshPosts>
-          </RefreshPostsContainer>
-
           <PostContainer> 
             {
               data?.map(post => 
@@ -74,14 +64,9 @@ function HomePage ({ user }) {
                 )
             }
           </PostContainer>
-        
-          
         </Container>
-        
       </Content>
-      
     </>
-    
   )
 }
 
