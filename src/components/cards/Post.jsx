@@ -37,6 +37,11 @@ function Post ({ text, user, date, isOwner, id }) {
     setEditPost(true)
   }
 
+  const handleSaveEdit = () => {
+    setEditPost(false)
+    mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
+  }
+
   const handleDelete = async () => {
     try { 
       const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, {
@@ -74,7 +79,7 @@ function Post ({ text, user, date, isOwner, id }) {
       <StyledDate> {moment(date).format('LLL')}</StyledDate>
       <ContainerText> 
         {!editPost && text} 
-        {editPost && <EditPost id={id} text={text} />}
+        {editPost && <EditPost id={id} text={text} onSave={handleSaveEdit} />}
       </ContainerText>
     </PostContainer>
   )
