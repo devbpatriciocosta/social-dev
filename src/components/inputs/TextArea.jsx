@@ -1,23 +1,16 @@
-import { useController } from 'react-hook-form';
-import Textarea from './Textarea';
+import styled from 'styled-components';
 
-const ControlledTextarea = ({
-  name,
-  control,
-  defaultValue = '',
-  ...props
-}) => {
-  const {
-    field: { value, onChange },
-  } = useController({ name, control, defaultValue });
+const Textarea = styled.textarea`
+  resize: none;
+  width: 100%;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border: 1px solid ${(props) => props.theme.inputBorder};
+  border-radius: 10px;
+  background-color: ${(props) =>
+    props.theme.inputBackground};
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+`;
 
-  return (
-    <Textarea
-      {...props}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
-
-export default ControlledTextarea;
+export default Textarea;
