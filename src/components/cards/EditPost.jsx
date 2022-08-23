@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import axios from "axios";
+import { useState } from "react";
 
 import ControlledTextarea from "../inputs/ControlledTextarea";
 import { createPostSchema } from "../../../modules/post/post.schema";
@@ -13,8 +14,11 @@ const EditPost = ({ id, text, onSave }) => {
     mode: 'all'
   })
 
+  const [loadingButton, setLoadingButton] = useState(false)
+
   const handleSaveEdit = async (data) => {
     try{
+      setLoadingButton(true)
       const response = await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, {
         id, 
         text: data.text
@@ -24,6 +28,8 @@ const EditPost = ({ id, text, onSave }) => {
       }
     } catch (err) {
       console.error(err)
+    } finally {
+      setLoadingButton(false)
     }
   }
 
@@ -37,7 +43,7 @@ const EditPost = ({ id, text, onSave }) => {
         maxLength="256"
         defaultValue={text}
         />
-        <Button disabled={!isValid}>Salvar alterações</Button>
+        <Button loading={loadingButton} disabled={!isValid}>Salvar alterações</Button>
     </form>
   )
 }
