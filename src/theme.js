@@ -1,4 +1,3 @@
-
 const theme = {
   primary: '#8933CD',
   primaryHover: '#7029A8',
