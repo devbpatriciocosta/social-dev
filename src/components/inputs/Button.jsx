@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
     background-color: ${props => props.theme.primary};
@@ -24,11 +24,9 @@ const StyledButton = styled.button`
 const Button = ({children, loading, disabled, ...props}) => {
 
   return(
-    <StyledButton
-      disabled={disabled || loading}
-      {...props}
-    >
-      {loading && 
+    <StyledButton disabled={disabled || loading} {...props} >
+      {
+      loading && 
       <>
       <img src="./loading.svg" width="14px"/>
       <p>Carregando...</p>
