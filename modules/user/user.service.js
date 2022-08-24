@@ -1,6 +1,6 @@
-import { hashPassword, comparePassword } from '../../utils/bcrypt'
+import { hashPassword, comparePassword } from "../../utils/bcrypt";
 
-import User from './user.model'
+import User from "./user.model";
 
 export const signupUser = async (body) => {
   try {
@@ -9,7 +9,7 @@ export const signupUser = async (body) => {
       password: hashPassword(body.password), 
     }
     const dbUser = await User.create(user)
-    return dbUser
+      return dbUser
   } catch (err) { 
     throw err
   }
