@@ -1,4 +1,4 @@
-import Post from './post.model'
+import Post from "./post.model";
 
 export const createPost = async (body, user) => {
   return await Post.create({
