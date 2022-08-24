@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-const WIDTH_BREAK = '700px'
+const WIDTH_BREAK = '700px';
 
 const StyledFlex = styled.div`
   display: flex;
@@ -30,34 +30,28 @@ const StyledContainer = styled.div`
     width: 100%;
   }
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  height: calc(100vh - 60px);
-  overflow-y: auto;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
 
-  &:before, &:after {
-    content: '';
-    margin: auto;
-  }
+    &:before, &:after {
+      content: '';
+      margin: auto;
+    }
 `
-
 
 function ImageWithSpace ({ children, image }) {
   return (
-
     <div>
       <StyledFlex>
-
         <StyledImage image={image} />
-
-        <StyledContainer>
-          {children}
-        </StyledContainer>
-
+          <StyledContainer>
+            {children}
+          </StyledContainer>
       </StyledFlex>
     </div>
-
   )
 }
 

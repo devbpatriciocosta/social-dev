@@ -16,13 +16,11 @@ const StyledChildren = styled.div`
 
 function Container ({ children }) {
   return (
-
     <StyledContainer>
       <StyledChildren>
         {children}
       </StyledChildren>
     </StyledContainer>
-    
   )
 }
 
