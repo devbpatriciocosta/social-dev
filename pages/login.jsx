@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Link from 'next/link'
+import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { joiResolver } from '@hookform/resolvers/joi'
+import { joiResolver } from "@hookform/resolvers/joi";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -25,6 +25,7 @@ const Form = styled.form`
   margin: 20px 0;
   gap: 20px;
 `
+
 const Text = styled.p`
   text-align: center;
 `
@@ -61,21 +62,21 @@ function LoginPage () {
   }
 
   return (
-    
       <ImageWithSpace>
-        <H1> # Social Dev </H1>
-        <H4> Tudo que acontece no mundo DEV, está aqui! </H4>
-        <FormContainer>
-          <H2> Entre em sua conta! </H2>
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <Input label="E-mail ou usuário" name="userOrEmail" control={control}/>
-            <Input label="Senha" type="password" name="password" control={control}/>
-            <Button loading={loadingButton} type="submit" disabled={Object.keys(errors).length} > Entrar </Button>
-          </Form>
-          <Text> Não possui uma conta? <Link href="/signup">Cadastre-se aqui!</Link> </Text>
-        </FormContainer>
+        <H1># Social Dev</H1>
+          <H4>Tudo que acontece no mundo DEV, está aqui!</H4>
+            <FormContainer>
+              <H2>Entre em sua conta!</H2>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                  <Input label="E-mail ou usuário" name="userOrEmail" control={control}/>
+                  <Input label="Senha" type="password" name="password" control={control}/>
+                  <Button loading={loadingButton} type="submit" disabled={Object.keys(errors).length} > Entrar </Button>
+                </Form>
+                <Text>
+                  Não possui uma conta?<Link href="/signup">Cadastre-se aqui!</Link>
+                </Text>
+          </FormContainer>
       </ImageWithSpace>
-    
   )
 }
 
