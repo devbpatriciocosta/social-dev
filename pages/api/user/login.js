@@ -1,11 +1,11 @@
-import { withIronSessionApiRoute } from 'iron-session/next'
+import { withIronSessionApiRoute } from 'iron-session/next';
 
-import createHandler from '../../../lib/middleawares/nextConnect'
-import validate from '../../../lib/middleawares/validation'
-import { login } from "../../../modules/user/user.service"
+import createHandler from '../../../lib/middleawares/nextConnect';
+import validate from '../../../lib/middleawares/validation';
+import { login } from "../../../modules/user/user.service";
 
-import { ironConfig } from '../../../lib/middleawares/ironSession'
-import { loginSchema } from '../../../modules/user/user.schema'
+import { ironConfig } from '../../../lib/middleawares/ironSession';
+import { loginSchema } from '../../../modules/user/user.schema';
 
 const handler = createHandler()
 
@@ -19,7 +19,7 @@ handler.post(validate({ body: loginSchema }), async (req, res) => {
     await req.session.save()
     res.send({ ok: true })
   } catch (err) {
-    return res.status(400).send(err.message)
+      return res.status(400).send(err.message)
   } 
 })
 

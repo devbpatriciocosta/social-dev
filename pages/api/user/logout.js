@@ -1,7 +1,7 @@
-import { withIronSessionApiRoute } from 'iron-session/next'
+import { withIronSessionApiRoute } from 'iron-session/next';
 
-import createHandler from '../../../lib/middleawares/nextConnect'
-import { ironConfig } from '../../../lib/middleawares/ironSession'
+import createHandler from '../../../lib/middleawares/nextConnect';
+import { ironConfig } from '../../../lib/middleawares/ironSession';
 
 const logout = createHandler() 
 

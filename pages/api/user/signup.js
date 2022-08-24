@@ -6,12 +6,9 @@ import createHandler from '../../../lib/middleawares/nextConnect'
 
 import validate from '../../../lib/middleawares/validation'
 
-import { signupUser } from "../../../modules/user/user.service"
-
-import { signupSchema } from '../../../modules/user/user.schema'
-
-import { ironConfig } from '../../../lib/middleawares/ironSession'
-
+import { signupUser } from "../../../modules/user/user.service";
+import { signupSchema } from "../../../modules/user/user.schema";
+import { ironConfig } from "../../../lib/middleawares/ironSession";
 
 const signup = createHandler()
 
@@ -36,6 +33,5 @@ const signup = createHandler()
       throw err
     }
   })
-
 
 export default withIronSessionApiRoute (signup, ironConfig)
