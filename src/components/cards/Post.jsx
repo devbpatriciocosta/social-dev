@@ -50,9 +50,9 @@ function Post ({ text, user, date, isOwner, id }) {
         }
       })
       if (response.status === 200)
-      mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
+        mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
     } catch (err) {
-      console.log(err)
+        console.log(err)
     }
   }
 
@@ -75,12 +75,12 @@ function Post ({ text, user, date, isOwner, id }) {
           />
         </ContatinerMenu>
       }
-      <StyledUsername> @{user} </StyledUsername>
-      <StyledDate> {moment(date).format('LLL')}</StyledDate>
-      <ContainerText> 
-        {!editPost && text} 
-        {editPost && <EditPost id={id} text={text} onSave={handleSaveEdit} />}
-      </ContainerText>
+        <StyledUsername> @{user} </StyledUsername>
+          <StyledDate> {moment(date).format('LLL')}</StyledDate>
+            <ContainerText> 
+              {!editPost && text} 
+              {editPost && <EditPost id={id} text={text} onSave={handleSaveEdit} />}
+            </ContainerText>
     </PostContainer>
   )
 }
